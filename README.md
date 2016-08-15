@@ -11,6 +11,8 @@ Enter server IP address / host name into browser
 
 Example - http://localhost or http://localhost/widget
 
+depending on hosting of files
+
 # Steps for use
 
 On first load
