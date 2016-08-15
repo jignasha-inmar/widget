@@ -7,9 +7,9 @@ Copy widget home folder within Any web server running
 # How to test
 
 Enter server IP address / host name into browser
-Example - 
 
-http://localhost or http://localhost/widget
+
+Example - http://localhost or http://localhost/widget
 
 # Steps for use
 
