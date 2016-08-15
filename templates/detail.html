@@ -1,0 +1,21 @@
+<table st-table="detail" class="table table-striped">
+<tr>
+<td colspan="2" align="right"><a ui-sref="widget"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>{{ item.name | uppercase }}</b></td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+{{ item.value | words | uppercase }}
+</td>
+</tr>
+<tr ng-repeat="(key,value) in item.pairs">
+<td align="center">
+{{ key }}
+</td>
+<td align="center">
+{{ value }}
+</td>
+</tr>
+</table>

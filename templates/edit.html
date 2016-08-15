@@ -1,0 +1,61 @@
+<div class="container">
+<div class="col-sm-8 col-sm-offset-2">
+<form name="widgetForm" ng-submit="submitForm(widgetForm.$valid)" novalidate>
+        <div class="alert alert-danger" role="alert" ng-show="errorMessage != ''" >
+            {{ errorMessage }}            
+        </div>      
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : widgetForm.name.$invalid && !widget.name.$pristine }">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="item.name" required placeholder="Widget Name">
+            <p ng-show="widgetForm.name.$invalid && !widgetForm.name.$pristine" class="help-block">Widget Name is required</p>
+        </div>
+
+        <!-- VALUE -->
+        <div class="form-group" ng-class="{ 'has-error' : widgetForm.value.$invalid && !widget.value.$pristine }">
+            <label>Value</label>
+            <input type="number" name="value" class="form-control" ng-model="item.value" ng-minlength="3" ng-maxlength="8" required 
+            placeholder="Widget Value">
+            <p ng-show="widgetForm.value.$invalid && !widgetForm.value.$pristine" class="help-block">Widget Value must be integer</p>
+        </div>
+        
+        <div class="form-group">
+            <label><b>Widget Key-Value pairs</b></label>
+        </div>                
+        <!-- Key pairs -->        
+        <div class="form-group" ng-repeat="(key,value) in item.pairs" ng-init="kname='kw_'+key;vname='vw_'+key">
+            <div class="col-sm-5" ng-class="{ 'has-error' : widgetForm.{{ kname }}.$invalid }">              
+                 <input type="text" dynamic-name="kname" class="form-control" ng-model="item.pairs[key]['key']" placeholder="Key" required> 
+                 <p ng-show="widgetForm.{{ kname }}.$invalid" class="help-block">This field is required</p>                
+            </div>       
+            <div class="col-sm-5" ng-class="{ 'has-error' : widgetForm.{{ vname }}.$invalid}">            
+                 <input type="text" dynamic-name="vname" class="form-control" ng-model="item.pairs[key]['value']" placeholder="Value" required>
+                 <p ng-show="widgetForm.{{ vname }}.$invalid" class="help-block">This field is required</p>                 
+            </div>
+            <div class="col-sm-2" ng-if="key + 1 < added">
+                 <button type="button" class="btn btn-default" ng-click="removePairs(key)" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-minus" aria-hidden="true">
+                 </button>
+            </div>
+            <div class="col-sm-2" ng-if="added == key+1">
+                 <button type="button" class="btn btn-default" ng-click="addPairs()" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                 </button>
+            </div>                             
+            <div class="form-group">
+                 &nbsp;
+            </div>            
+        </div>        
+        <div class="form-group">
+             &nbsp;
+        </div>
+        <!-- SUBMIT BUTTON -->
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-block btn-primary" ng-disabled="widgetForm.$invalid">Save</button>
+        </div>
+        <div class="col-sm-3">            
+            <a ui-sref="widget"><button id="cancel" name="cancel" class="btn btn-block btn-default">Cancel</button><a>
+        </div>            
+</form>
+</div>
+</div>

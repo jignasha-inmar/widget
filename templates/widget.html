@@ -1,0 +1,28 @@
+<table st-table="main" class="table table-striped">
+<tr>
+<td width="40%">
+<table st-table="summary" class="table table-striped">
+<thead>
+<tr>      
+    <th st-sort="name">Name</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+</thead>
+<tbody>                     
+<tr ng-repeat="st in storage">
+<td>{{ st.name }}</td>
+<td><a ui-sref="detail({id: st.id})"><input type="button" class="btn btn-info" id="details_{{ st.id }}"  value="Details" /></a></td>
+<td><a ui-sref="remove({id: st.id})"><input type="button" class="btn btn-danger" id="remove_{{ st.id }}"  value="Remove" /></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td>
+<div ui-view="detail"></div>
+</td>
+</tr>
+<tr>
+<td align="center"><a ui-sref="add"><button type="button" class="btn btn-primary">Add</button></a></td>
+<td align="center"><a ui-sref="edit({id: edit_item})"><button type="button" ng-disabled="edit_item==undefined" class="btn btn-primary">Edit</button></a></td>
+</tr>
+</table>
