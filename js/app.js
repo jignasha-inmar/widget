@@ -1,4 +1,4 @@
-var app = angular.module('widgetApp', ['ngStorage', 'ui.router', 'ui.bootstrap']);
+var app = angular.module('widgetApp', ['ngStorage', 'ui.router', 'ui.bootstrap', 'angular-confirm']);
 
 app.config(['$stateProvider', '$urlRouterProvider', 
     function($stateProvider, $urlRouterProvider) {
@@ -38,6 +38,13 @@ app.config(['$stateProvider', '$urlRouterProvider',
     }
   ]);
   
+
+app.run(function($rootScope, $state) {
+    $rootScope.deleteWidget = function(id) {    
+       $state.go('remove',{'id': id})    
+    }        
+});
+
   
 app.filter('words', function() {
   function isInteger(x) {

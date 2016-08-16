@@ -1,6 +1,6 @@
 function editController ($scope, $state, $stateParams) {
 $scope.errorMessage = ''
-$scope.added = 1
+$scope.added = 5
 $scope.item = {}
 $scope.item.pairs = []
 createPairs()

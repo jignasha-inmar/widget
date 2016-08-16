@@ -1,11 +1,11 @@
-function mainController ($scope, $rootScope, $stateParams, $localStorage) {
+function mainController ($scope, $state, $rootScope, $stateParams, $localStorage) {
 $rootScope.storage = getData()
-$rootScope.edit_item = undefined
+$rootScope.edit_item = undefined                    
 }
 
 function removeController ($scope, $state, $stateParams, $localStorage) {
-key = $stateParams.id+"_widget"
-localStorage.removeItem(key)
+key = $stateParams.id+"_widget"            
+localStorage.removeItem(key) 
 $state.go('widget')
 }
 

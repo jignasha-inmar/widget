@@ -14,7 +14,7 @@
         <!-- VALUE -->
         <div class="form-group" ng-class="{ 'has-error' : widgetForm.value.$invalid && !widget.value.$pristine }">
             <label>Value</label>
-            <input type="number" name="value" class="form-control" ng-model="item.value" ng-minlength="3" ng-maxlength="8" required 
+            <input type="number" name="value" class="form-control" ng-model="item.value" ng-maxlength="12" required 
             placeholder="Widget Value">
             <p ng-show="widgetForm.value.$invalid && !widgetForm.value.$pristine" class="help-block">Widget Value must be integer</p>
         </div>
